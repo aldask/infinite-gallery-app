@@ -1,0 +1,52 @@
+.photoCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  height: 50vh;
+}
+
+.photoCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.infoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 16px;
+  text-align: center;
+}
+
+.photoCard:hover .infoOverlay {
+  opacity: 1;
+}
+
+.infoOverlay button {
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.infoOverlay button:hover {
+  background: white;
+  color: black;
+}

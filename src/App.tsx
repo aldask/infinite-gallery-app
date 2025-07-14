@@ -1,9 +1,10 @@
 import "./App.css";
+import PhotoList from "./components/PhotoList/PhotoList";
 
 function App() {
   return (
     <main>
-      <h1>Pexels Gallery</h1>
+      <PhotoList />
     </main>
   );
 }

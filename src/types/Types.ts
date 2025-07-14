@@ -8,3 +8,9 @@ export interface PexelPhoto {
   };
   alt: string;
 }
+
+export interface PhotoCardProps {
+  photo: PexelPhoto;
+  isFav: boolean;
+  onFavToggle: (photoId: number) => void;
+}
