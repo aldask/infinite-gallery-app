@@ -3,6 +3,7 @@ export interface PexelPhoto {
   photographer: string;
   src: {
     original: string;
+    portrait: string
     medium: string;
     small: string;
   };

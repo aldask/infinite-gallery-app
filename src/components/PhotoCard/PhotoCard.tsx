@@ -1,14 +1,19 @@
-import type { PhotoCardProps } from "../../types/Types";
 import styles from "./PhotoCard.module.css";
+import type { PhotoCardProps } from "../../types/Types";
 
 function PhotoCard({ photo, isFav, onFavToggle }: PhotoCardProps) {
   return (
-    <div className={styles.photoCard}>
-      <img src={photo.src.medium} alt={photo.alt} />
-      <div className={styles.infoOverlay}>
-        <p>{photo.photographer}</p>
+    <div className={styles.card}>
+      <img
+        className={styles.image}
+        src={photo.src.portrait}
+        alt={photo.alt}
+        loading="lazy"
+      />
+      <div className={styles.overlay}>
+        <p className={styles.title}>{photo.photographer}</p>
         <button onClick={() => onFavToggle(photo.id)}>
-          {isFav ? "unfav" : "fav"}
+          {isFav ? "Unfavorite" : "Favorite"}
         </button>
       </div>
     </div>
