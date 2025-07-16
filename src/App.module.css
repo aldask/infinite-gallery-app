@@ -12,6 +12,23 @@ main {
   box-sizing: border-box;
 }
 
+.button {
+  padding: 0.5rem 1.25rem;
+  border: 2px solid rgba(41, 41, 41, 0.39);
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+  background: transparent;
+  color: rgb(49, 49, 49);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: rgb(77, 77, 77);
+  color: rgb(255, 255, 255);
+}
+
 @media (min-width: 640px) {
   main {
     padding: 40px 32px;

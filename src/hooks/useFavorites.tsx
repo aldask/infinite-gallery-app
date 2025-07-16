@@ -3,7 +3,7 @@ import {
   displayFavPics,
   addFavPic,
   removeFavPic,
-} from "../types/useLocalStorage";
+} from "./useLocalStorage";
 import type { PexelPhoto } from "../types/Types";
 
 export default function useFavorites() {

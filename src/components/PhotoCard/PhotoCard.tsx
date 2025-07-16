@@ -1,7 +1,12 @@
 import styles from "./PhotoCard.module.css";
 import type { PhotoCardProps } from "../../types/Types";
 
-function PhotoCard({ photo, isFavorite, onFavToggle, setting }: PhotoCardProps) {
+function PhotoCard({
+  photo,
+  isFavorite,
+  onFavToggle,
+  setting,
+}: PhotoCardProps) {
   const handleFavToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     onFavToggle(photo);
@@ -19,8 +24,12 @@ function PhotoCard({ photo, isFavorite, onFavToggle, setting }: PhotoCardProps) 
         loading="lazy"
       />
       <div className={styles.overlay}>
-        <p className={styles.title}>{photo.alt}</p>
-        <p className={styles.photographer}>{photo.photographer}</p>
+        <div className={styles.inside}>
+          <div className={styles.textWrapper}>
+            <p className={styles.title}>{photo.alt}</p>
+            <p className={styles.photographer}>{photo.photographer}</p>
+          </div>
+        </div>
         <button className={styles.button} onClick={handleFavToggle}>
           {isFavorite ? "Unfavourite" : "Favourite"}
         </button>

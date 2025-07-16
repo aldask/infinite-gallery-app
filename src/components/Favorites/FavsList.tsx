@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { PexelPhoto } from "../../types/Types";
-import { displayFavPics, removeFavPic } from "../../types/useLocalStorage";
+import { displayFavPics, removeFavPic } from "../../hooks/useLocalStorage";
 import styles from "./FavsList.module.css";
 import type { FavsListProps } from "../../types/Types";
 import PhotoCard from "../PhotoCard/PhotoCard";
