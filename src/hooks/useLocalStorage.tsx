@@ -1,4 +1,4 @@
-import type { PexelPhoto } from "./Types";
+import type { PexelPhoto } from "../types/Types";
 
 export function displayFavPics(): PexelPhoto[] {
   const favPics = localStorage.getItem("favPics");
