@@ -3,7 +3,7 @@ export interface PexelPhoto {
   photographer: string;
   src: {
     original: string;
-    portrait: string
+    portrait: string;
     medium: string;
     small: string;
   };
@@ -12,6 +12,11 @@ export interface PexelPhoto {
 
 export interface PhotoCardProps {
   photo: PexelPhoto;
-  isFav: boolean;
-  onFavToggle: (photoId: number) => void;
+  isFavorite: boolean;
+  onFavToggle: (photo: PexelPhoto) => void;
+}
+
+export interface FavsListProps {
+  isOpen: boolean;
+  onClose: () => void;
 }
