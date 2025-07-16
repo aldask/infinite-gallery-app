@@ -14,6 +14,7 @@ export interface PhotoCardProps {
   photo: PexelPhoto;
   isFavorite: boolean;
   onFavToggle: (photo: PexelPhoto) => void;
+  setting?: string;
 }
 
 export interface FavsListProps {

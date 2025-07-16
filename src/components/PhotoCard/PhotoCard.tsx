@@ -1,14 +1,17 @@
 import styles from "./PhotoCard.module.css";
 import type { PhotoCardProps } from "../../types/Types";
 
-function PhotoCard({ photo, isFavorite, onFavToggle }: PhotoCardProps) {
+function PhotoCard({ photo, isFavorite, onFavToggle, setting }: PhotoCardProps) {
   const handleFavToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     onFavToggle(photo);
   };
 
+  const cardClassName =
+    setting === "favs" ? `${styles.card} ${styles.cardFavs}` : styles.card;
+
   return (
-    <div className={styles.card}>
+    <div className={cardClassName}>
       <img
         className={styles.image}
         src={photo.src.portrait}

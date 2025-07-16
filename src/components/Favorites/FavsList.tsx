@@ -3,6 +3,7 @@ import type { PexelPhoto } from "../../types/Types";
 import { displayFavPics, removeFavPic } from "../../types/useLocalStorage";
 import styles from "./FavsList.module.css";
 import type { FavsListProps } from "../../types/Types";
+import PhotoCard from "../PhotoCard/PhotoCard";
 
 function FavsList({ isOpen, onClose }: FavsListProps) {
   const [favs, setFavs] = useState<PexelPhoto[]>([]);
@@ -14,9 +15,9 @@ function FavsList({ isOpen, onClose }: FavsListProps) {
     }
   }, [isOpen]);
 
-  const handleRemove = (id: number) => {
-    removeFavPic(id);
-    setFavs((prevFavs) => prevFavs.filter((fav) => fav.id !== id));
+  const handleRemove = (photo: PexelPhoto) => {
+    removeFavPic(photo.id);
+    setFavs((prevFavs) => prevFavs.filter((fav) => fav.id !== photo.id));
   };
 
   if (!isOpen) return null;
@@ -33,11 +34,13 @@ function FavsList({ isOpen, onClose }: FavsListProps) {
             <p>No favorites yet.</p>
           ) : (
             favs.map((photo) => (
-              <div key={photo.id} className={styles.card}>
-                <img src={photo.src.portrait} alt={photo.alt} loading="lazy" />
-                <p>{photo.photographer}</p>
-                <button onClick={() => handleRemove(photo.id)}>Remove</button>
-              </div>
+              <PhotoCard
+                key={photo.id}
+                photo={photo}
+                isFavorite={true}
+                onFavToggle={handleRemove}
+                setting="favs"
+              />
             ))
           )}
         </div>
