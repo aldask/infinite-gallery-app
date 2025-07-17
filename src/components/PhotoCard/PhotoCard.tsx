@@ -1,5 +1,6 @@
 import styles from "./PhotoCard.module.css";
 import type { PhotoCardProps } from "../../types/Types";
+import ProgressiveImage from "../ProgressiveImage/ProgressiveImage";
 
 function PhotoCard({
   photo,
@@ -17,11 +18,10 @@ function PhotoCard({
 
   return (
     <div className={cardClassName}>
-      <img
-        className={styles.image}
-        src={photo.src.portrait}
+      <ProgressiveImage
+        lowResSrc={photo.src.medium}
+        highResSrc={photo.src.original}
         alt={photo.alt}
-        loading="lazy"
       />
       <div className={styles.overlay}>
         <div className={styles.inside}>
@@ -29,12 +29,13 @@ function PhotoCard({
             <p className={styles.title}>{photo.alt}</p>
             <p className={styles.photographer}>{photo.photographer}</p>
           </div>
+          <button className={styles.button} onClick={handleFavToggle}>
+            {isFavorite ? "Unfavourite" : "Favourite"}
+          </button>
         </div>
-        <button className={styles.button} onClick={handleFavToggle}>
-          {isFavorite ? "Unfavourite" : "Favourite"}
-        </button>
       </div>
     </div>
   );
 }
+
 export default PhotoCard;

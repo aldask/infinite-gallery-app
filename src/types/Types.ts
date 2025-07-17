@@ -21,3 +21,9 @@ export interface FavsListProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+export interface ProgressiveImageProps {
+  lowResSrc: string;
+  highResSrc: string;
+  alt: string;
+}
