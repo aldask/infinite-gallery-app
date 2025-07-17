@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import type { PexelPhoto } from "../../types/Types";
 import fetchPexelPic from "../../api/Pexels";
 import PhotoCard from "../PhotoCard/PhotoCard";
@@ -7,9 +7,11 @@ import useFavorites from "../../hooks/useFavorites";
 
 function PhotoList() {
   const [photos, setPhotos] = useState<PexelPhoto[]>([]);
-  const [page] = useState(1);
+  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const { isFav, handleFavButton } = useFavorites();
+
+  const breakRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const loadPics = async () => {
@@ -23,21 +25,43 @@ function PhotoList() {
         setLoading(false);
       }
     };
+
     loadPics();
   }, [page]);
 
+  useEffect(() => {
+    const breakpoint = breakRef.current;
+    if (!breakpoint) return;
+
+    const observer = new IntersectionObserver((entry) => {
+      const isVisible = entry[0].isIntersecting;
+
+      if (isVisible && !loading) {
+        setPage((prevPage) => prevPage + 1);
+      }
+    });
+
+    observer.observe(breakpoint);
+
+    return () => {
+      observer.unobserve(breakpoint);
+    };
+  }, [loading]);
+
   return (
     <div className={styles.photoList}>
-      {loading && <p>Loading...</p>}
-      {!loading &&
-        photos.map((photo) => (
-          <PhotoCard
-            key={photo.id}
-            photo={photo}
-            isFavorite={isFav(photo.id)}
-            onFavToggle={handleFavButton}
-          />
-        ))}
+      {photos.map((photo) => (
+        <PhotoCard
+          key={photo.id}
+          photo={photo}
+          isFavorite={isFav(photo.id)}
+          onFavToggle={handleFavButton}
+        />
+      ))}
+      {loading && photos.length > 0 && (
+        <p className={styles.loading}>Loading more photos...</p>
+      )}
+      <div ref={breakRef} className={styles.sentinel}></div>
     </div>
   );
 }
