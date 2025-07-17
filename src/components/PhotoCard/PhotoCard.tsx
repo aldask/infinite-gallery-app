@@ -19,8 +19,8 @@ function PhotoCard({
   return (
     <div className={cardClassName}>
       <ProgressiveImage
-        lowResSrc={photo.src.medium}
-        highResSrc={photo.src.original}
+        lowResSrc={photo.src.small}
+        highResSrc={photo.src.medium}
         alt={photo.alt}
       />
       <div className={styles.overlay}>
