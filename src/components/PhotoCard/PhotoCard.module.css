@@ -5,17 +5,11 @@
   box-shadow: 5px 3px 13px -5px rgba(0, 0, 0, 0.75);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
   aspect-ratio: 4 / 3;
+  cursor: pointer;
 }
 
 .cardFavs {
   aspect-ratio: 3 / 4;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
 .overlay {

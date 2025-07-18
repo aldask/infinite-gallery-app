@@ -7,7 +7,7 @@ import useFavorites from "../../hooks/useFavorites";
 
 function PhotoList() {
   const [photos, setPhotos] = useState<PexelPhoto[]>([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
   const { isFav, handleFavButton } = useFavorites();
 
@@ -18,7 +18,15 @@ function PhotoList() {
       setLoading(true);
       try {
         const newPics = await fetchPexelPic(page);
-        setPhotos((prev) => [...prev, ...newPics]);
+
+        setPhotos((previousPics) => {
+          const oldPicsIds = previousPics.map((photo) => photo.id);
+          const filteredNewPicsIds = newPics.filter(
+            (photo) => !oldPicsIds.includes(photo.id)
+          );
+
+          return [...previousPics, ...filteredNewPicsIds];
+        });
       } catch (error) {
         console.error("Failed to fetch photos:", error);
       } finally {
