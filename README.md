@@ -38,20 +38,31 @@ To run this project locally, follow these steps:
    ```bash
    npm install
    ```
+3. **Get your Pexels API key and URL**:
 
-3. **OPTIONAL: Run Tests**:
+- Sign up or log in at [Pexels API](https://www.pexels.com/api/)
+- Create an API key (you will receive your personal API key)
+- The base URL for the API is:  ``` https://api.pexels.com/v1/curated ```
+
+4. **Create a ``` .env ``` file in the project root and add your API details:**
+
+   ```VITE_API_URL=https://api.pexels.com/v1/curated```
+   
+   ```VITE_API_KEY=your_pexels_api_key_here```
+
+5. **OPTIONAL: Run Tests**:
 
    ```bash
    npm run test
    ```
 
-4. **Run the app**:
+6. **Run the app**:
 
    ```bash
    npm run dev
    ```
 
-5. Open [http://localhost:5173](http://localhost:5173) in your browser to view the app.
+7. Open [http://localhost:5173](http://localhost:5173) in your browser to view the app.
 
 ## Live View
 
