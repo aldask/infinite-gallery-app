@@ -15,6 +15,7 @@ const ProgressiveImage = ({
         src={lowResSrc}
         alt={alt}
         className={`${styles.image} ${styles.low}`}
+        loading="lazy"
       />
       <img
         src={highResSrc}

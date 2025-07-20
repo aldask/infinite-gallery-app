@@ -12,7 +12,14 @@ function FavsList({ isOpen, onClose }: FavsListProps) {
     if (isOpen) {
       const favPics = displayFavPics();
       setFavs(favPics);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
     }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   const handleRemove = (photo: PexelPhoto) => {
