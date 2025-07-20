@@ -40,9 +40,9 @@ To run this project locally, follow these steps:
    ```
 3. **Get your Pexels API key and URL**:
 
-- Sign up or log in at [Pexels API](https://www.pexels.com/api/)
-- Create an API key (you will receive your personal API key)
-- The base URL for the API is:  ``` https://api.pexels.com/v1/curated ```
+   - Sign up or log in at [Pexels API](https://www.pexels.com/api/)
+   - Create an API key (you will receive your personal API key)
+   - The base URL for the API is:  ``` https://api.pexels.com/v1/curated ```
 
 4. **Create a ``` .env ``` file in the project root and add your API details:**
 
