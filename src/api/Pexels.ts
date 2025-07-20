@@ -11,7 +11,7 @@ async function fetchPexelPic(page: number): Promise<PexelPhoto[]> {
   });
 
   if (!response.ok) {
-    throw new Error("Network response was not ok");
+    alert(`Failed to fetch images: ${response.status} ${response.statusText}`);
   }
 
   const data = await response.json();

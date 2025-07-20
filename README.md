@@ -1,6 +1,6 @@
 # React Typescript Gallery App
 
-A sleek and minimal image gallery built with React + TypeScript, styled using CSS Modules.
+A sleek and minimal image gallery built with **React + TypeScript**, styled using **CSS Modules**.
 
 # Stack
 
@@ -10,12 +10,16 @@ A sleek and minimal image gallery built with React + TypeScript, styled using CS
 
 ## Features
 
-- Fetches images and info from **Pexels API**
+- Fetches images and metadata from the **Pexels API**
 - Infinite scrolling for smooth browsing
-- Written in TypeScript with full typing
-- Simple, reusable components
-- Favorites modal to save images
-- Basic tests included
+- Fully typed with **TypeScript**
+- Simple and reusable components
+- Favorites are saved using **LocalStorage** and can be viewed via a **"Show Favorites" modal**
+- Includes basic tests
+
+## Preview
+
+<img src="src/assets/preview.png" alt="Preview">
 
 ## Setup
 
@@ -40,6 +44,10 @@ To run this project locally, follow these steps:
    ```
 
 4. Open [http://localhost:5173](http://localhost:5173) in your browser to view the app.
+
+## Running Tests
+
+This project includes unit tests written with [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/).
 
 ## Live View
 
