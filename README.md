@@ -19,7 +19,7 @@ A sleek and minimal image gallery built with **React + TypeScript**, styled usin
 
 ## Preview
 
-[Preview](src/assets/preview.png)
+<img align="center" src="src/assets/preview.png" alt="Preview">
 
 ## Setup
 
