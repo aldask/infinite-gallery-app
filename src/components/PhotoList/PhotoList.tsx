@@ -8,15 +8,21 @@ import loadingGif from "../../assets/loadingGif.gif";
 
 function PhotoList() {
   const [photos, setPhotos] = useState<PexelPhoto[]>([]);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [hasLoadedFirstPage, setHasLoadedFirstPage] = useState(false);
   const { isFav, handleFavButton } = useFavorites();
 
   const breakRef = useRef<HTMLDivElement | null>(null);
+  const fetchedPages = useRef<Set<number>>(new Set());
 
   useEffect(() => {
     const loadPics = async () => {
+      if (fetchedPages.current.has(page)) return;
+
       setLoading(true);
+      fetchedPages.current.add(page);
+
       try {
         const newPics = await fetchPexelPic(page);
 
@@ -28,6 +34,8 @@ function PhotoList() {
 
           return [...previousPics, ...filteredNewPicsIds];
         });
+
+        if (page === 1) setHasLoadedFirstPage(true);
       } catch (error) {
         console.error("Failed to fetch photos:", error);
       } finally {
@@ -45,7 +53,7 @@ function PhotoList() {
     const observer = new IntersectionObserver((entry) => {
       const isVisible = entry[0].isIntersecting;
 
-      if (isVisible && !loading) {
+      if (isVisible && !loading && hasLoadedFirstPage) {
         setPage((prevPage) => prevPage + 1);
       }
     });
@@ -55,7 +63,7 @@ function PhotoList() {
     return () => {
       observer.unobserve(breakpoint);
     };
-  }, [loading]);
+  }, [loading, hasLoadedFirstPage]);
 
   return (
     <div className={styles.photoList}>
