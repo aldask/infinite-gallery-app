@@ -2,7 +2,7 @@
 
 A sleek and minimal image gallery built with **React + TypeScript**, styled using **CSS Modules**.
 
-# Stack
+## Stack
 
 - React + TypeScript
 - Vite
