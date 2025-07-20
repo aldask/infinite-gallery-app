@@ -7,6 +7,8 @@ A sleek and minimal image gallery built with **React + TypeScript**, styled usin
 - React + TypeScript
 - Vite
 - CSS Modules
+- Vitest
+- React Testing Library
 
 ## Features
 
@@ -37,17 +39,19 @@ To run this project locally, follow these steps:
    npm install
    ```
 
-3. **Run the app**:
+3. **OPTIONAL: Run Tests**:
+
+   ```bash
+   npm run test
+   ```
+
+4. **Run the app**:
 
    ```bash
    npm run dev
    ```
 
-4. Open [http://localhost:5173](http://localhost:5173) in your browser to view the app.
-
-## Running Tests
-
-This project includes unit tests written with [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/).
+5. Open [http://localhost:5173](http://localhost:5173) in your browser to view the app.
 
 ## Live View
 
