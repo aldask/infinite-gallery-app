@@ -9,7 +9,7 @@
 }
 
 .cardFavs {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: auto;
 }
 
 .overlay {
@@ -80,8 +80,9 @@
   transform: translateY(-1.2em);
 }
 
-.button {
-  padding: 0.75rem 1.5rem;
+.button,
+.favButton {
+  display: inline-block;
   border: 2px solid rgba(255, 255, 255, 0.39);
   margin-bottom: 2rem;
   border-radius: 9999px;
@@ -92,7 +93,19 @@
   transition: background 0.3s ease;
 }
 
-.button:hover {
+.button {
+  padding: 0.75rem 1.5rem;
+  align-self: center;
+}
+
+.favButton {
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 1rem;
+  align-self: center;
+}
+
+.button:hover,
+.favButton:hover {
   background: white;
   color: black;
 }

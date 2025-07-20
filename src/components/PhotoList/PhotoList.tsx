@@ -4,6 +4,7 @@ import fetchPexelPic from "../../api/Pexels";
 import PhotoCard from "../PhotoCard/PhotoCard";
 import styles from "./PhotoList.module.css";
 import useFavorites from "../../hooks/useFavorites";
+import loadingGif from "../../assets/loadingGif.gif";
 
 function PhotoList() {
   const [photos, setPhotos] = useState<PexelPhoto[]>([]);
@@ -67,7 +68,9 @@ function PhotoList() {
         />
       ))}
       {loading && photos.length > 0 && (
-        <p className={styles.loading}>Loading more photos...</p>
+        <p className={styles.loading}>
+          <img src={loadingGif} alt="Loading more photos..." />
+        </p>
       )}
       <div ref={breakRef} className={styles.sentinel}></div>
     </div>

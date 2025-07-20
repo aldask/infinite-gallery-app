@@ -17,3 +17,18 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1 / -1;
+  padding: 1rem 0;
+}
+
+.loading img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  animation: spin 1.5s linear infinite;
+}

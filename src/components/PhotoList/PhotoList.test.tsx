@@ -17,7 +17,7 @@ vi.mock("../../hooks/useFavorites", () => ({
 }));
 
 vi.mock("../PhotoCard/PhotoCard", () => ({
-  default: ({ photo }: any) => <img src={photo.src.medium} alt={photo.alt} />,
+  default: ({ photo }: any) => <img src={photo.src.large2x} alt={photo.alt} />,
 }));
 
 beforeAll(() => {
