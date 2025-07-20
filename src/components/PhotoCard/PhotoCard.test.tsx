@@ -30,7 +30,7 @@ describe("PhotoCard component", () => {
     expect(screen.getByText(mockPic.alt)).toBeInTheDocument();
     expect(screen.getByText(mockPic.photographer)).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "Unfavourite" })
+      screen.getByRole("button", { name: "Unfavorite" })
     ).toBeInTheDocument();
 
     const images = screen.getAllByRole("img");
@@ -46,7 +46,7 @@ describe("PhotoCard component", () => {
     );
 
     expect(
-      screen.getByRole("button", { name: "Favourite" })
+      screen.getByRole("button", { name: "Favorite" })
     ).toBeInTheDocument();
   });
 });

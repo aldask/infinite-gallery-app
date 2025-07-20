@@ -40,7 +40,7 @@ function PhotoCard({
             }
             onClick={handleFavToggle}
           >
-            {isFavorite ? "Unfavourite" : "Favourite"}
+            {isFavorite ? "Unfavorite" : "Favorite"}
           </button>
         </div>
       </div>
