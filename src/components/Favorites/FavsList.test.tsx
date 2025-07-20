@@ -1,23 +1,45 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, cleanup } from "@testing-library/react";
 import FavsList from "./FavsList";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 import "@testing-library/jest-dom/vitest";
+import { displayFavPics } from "../../hooks/useLocalStorage";
+import { mockPics } from "../../test-utils/helpers";
 
-const mockPics = [
-  { id: 1, src: "pic1", alt: "pic1-txt" },
-  { id: 2, src: "pic2", alt: "pic2-txt" },
-];
+vi.mock("../../hooks/useLocalStorage", () => ({
+  displayFavPics: vi.fn(),
+  removeFavPic: vi.fn(),
+}));
+
+vi.mock("../PhotoCard/PhotoCard", () => ({
+  default: ({ photo }: any) => <img src={photo.src.medium} alt={photo.alt} />,
+}));
+
+afterEach(() => {
+  cleanup();
+});
 
 describe("FavsList component", () => {
-  it("Renders correctly", () => {
-    render(
-      <FavsList
-        isOpen={true}
-        onClose={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-      />
-    );
+  it("renders header", () => {
+    (displayFavPics as any).mockReturnValueOnce([]);
+    render(<FavsList isOpen={true} onClose={vi.fn()} />);
     expect(screen.getByText("Your Favorite Photos")).toBeInTheDocument();
+  });
+
+  it("does not render when isOpen is false", () => {
+    render(<FavsList isOpen={false} onClose={vi.fn()} />);
+    expect(screen.queryByText("Your Favorite Photos")).not.toBeInTheDocument();
+  });
+
+  it("renders 'No favorites yet.' message", () => {
+    (displayFavPics as any).mockReturnValueOnce([]);
+    render(<FavsList isOpen={true} onClose={vi.fn()} />);
+    expect(screen.getByText("No favorites yet.")).toBeInTheDocument();
+  });
+
+  it("renders favorite images", () => {
+    (displayFavPics as any).mockReturnValueOnce(mockPics);
+    render(<FavsList isOpen={true} onClose={vi.fn()} />);
+    expect(screen.getByAltText("dummy alternative text")).toBeInTheDocument();
+    expect(screen.getByAltText("dummy alternative text 2")).toBeInTheDocument();
   });
 });
