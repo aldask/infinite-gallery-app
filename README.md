@@ -17,6 +17,10 @@ A sleek and minimal image gallery built with **React + TypeScript**, styled usin
 - Favorites are saved using **LocalStorage**
 - Includes basic tests
 
+## Preview
+
+[Preview](src/assets/preview.png)
+
 ## Setup
 
 To run this project locally, follow these steps:
