@@ -14,12 +14,12 @@ A sleek and minimal image gallery built with **React + TypeScript**, styled usin
 - Infinite scrolling for smooth browsing
 - Fully typed with **TypeScript**
 - Simple and reusable components
-- Favorites are saved using **LocalStorage**
+- Favorites are saved using **LocalStorage** and can be viewed via a **"Show Favorites" modal**
 - Includes basic tests
 
 ## Preview
 
-<img align="center" src="src/assets/preview.png" alt="Preview">
+<img src="src/assets/preview.png" alt="Preview">
 
 ## Setup
 
