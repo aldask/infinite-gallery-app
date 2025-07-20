@@ -13,23 +13,33 @@ function PhotoCard({
     onFavToggle(photo);
   };
 
-  const cardClassName =
-    setting === "favs" ? `${styles.card} ${styles.cardFavs}` : styles.card;
-
   return (
-    <div className={cardClassName}>
+    <div
+      className={
+        setting === "favs" ? `${styles.card} ${styles.cardFavs}` : styles.card
+      }
+    >
       <ProgressiveImage
         lowResSrc={photo.src.small}
-        highResSrc={photo.src.medium}
+        highResSrc={photo.src.large2x}
         alt={photo.alt}
       />
       <div className={styles.overlay}>
         <div className={styles.inside}>
           <div className={styles.textWrapper}>
-            <p className={styles.title}>{photo.alt}</p>
-            <p className={styles.photographer}>{photo.photographer}</p>
+            {setting !== "favs" && (
+              <>
+                <p className={styles.title}>{photo.alt}</p>
+                <p className={styles.photographer}>{photo.photographer}</p>
+              </>
+            )}
           </div>
-          <button className={styles.button} onClick={handleFavToggle}>
+          <button
+            className={
+              setting === "favs" ? `${styles.favButton}` : styles.button
+            }
+            onClick={handleFavToggle}
+          >
             {isFavorite ? "Unfavourite" : "Favourite"}
           </button>
         </div>
